@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://s6igj5a2v4s6"
-path="res://.godot/imported/top_isometric_test.png-a96fe293ad46aaa9fe75b6a2b7a105be.ctex"
+uid="uid://c3c5m3hkjlwgu"
+path="res://.godot/imported/DirtCubeSlopeForward.png-4c92428dbcd8f4a287b16c704eb36771.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://top_isometric_test.png"
-dest_files=["res://.godot/imported/top_isometric_test.png-a96fe293ad46aaa9fe75b6a2b7a105be.ctex"]
+source_file="res://Assets/Dirt/DirtCubeSlopeForward.png"
+dest_files=["res://.godot/imported/DirtCubeSlopeForward.png-4c92428dbcd8f4a287b16c704eb36771.ctex"]
 
 [params]
 

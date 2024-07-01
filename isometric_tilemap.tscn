@@ -1,27 +1,38 @@
 [gd_scene load_steps=6 format=3 uid="uid://cgf1t67dfp431"]
 
-[ext_resource type="Texture2D" uid="uid://cw3iy3o13otug" path="res://bottom_slab.png" id="2_3elg2"]
-[ext_resource type="Texture2D" uid="uid://dtgwuxnopeivw" path="res://base.png" id="3_dmgfb"]
+[ext_resource type="Texture2D" uid="uid://81ewjyv1itxx" path="res://Assets/Dirt/DirtCubes.png" id="1_we8bw"]
+[ext_resource type="Script" path="res://isometric_tilemap.gd" id="3_8rune"]
+[ext_resource type="PackedScene" uid="uid://beaqidq0oq35f" path="res://highlighter.tscn" id="5_haxqd"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_38u12"]
-texture = ExtResource("3_dmgfb")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wwbh3"]
+resource_name = "dirt"
+texture = ExtResource("1_we8bw")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, -16)
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ka545"]
-texture = ExtResource("2_3elg2")
-texture_region_size = Vector2i(64, 64)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(0, 8)
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0 = 0
+1:0/0/texture_origin = Vector2i(0, -16)
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0 = 0
+2:0/0/texture_origin = Vector2i(0, -16)
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+3:0/0 = 0
+3:0/0/texture_origin = Vector2i(0, -16)
+3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:0/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSet" id="TileSet_cywfr"]
 tile_shape = 1
 tile_layout = 5
 tile_offset_axis = 1
 tile_size = Vector2i(64, 32)
-sources/4 = SubResource("TileSetAtlasSource_38u12")
-sources/6 = SubResource("TileSetAtlasSource_ka545")
+physics_layer_0/collision_layer = 1
+navigation_layer_0/layers = 1
+sources/0 = SubResource("TileSetAtlasSource_wwbh3")
 
 [node name="TileMap" type="TileMap"]
 y_sort_enabled = true
@@ -29,13 +40,18 @@ tile_set = SubResource("TileSet_cywfr")
 format = 2
 layer_0/name = "level0"
 layer_0/y_sort_enabled = true
-layer_0/tile_data = PackedInt32Array(131075, 3, 0, 65539, 3, 0, 65540, 3, 0, 4, 3, 0, 5, 3, 0, -65531, 3, 0, -65530, 3, 0, -65529, 3, 0, -65528, 3, 0, -65527, 3, 0, -131063, 3, 0, -131062, 3, 0, 9, 3, 0, 8, 3, 0, 7, 3, 0, 6, 3, 0, 65542, 3, 0, 65541, 3, 0, 131077, 3, 0, 131076, 3, 0, 196612, 3, 0, 196613, 3, 0, 196614, 3, 0, 131078, 3, 0, 131079, 3, 0, 131080, 3, 0, 65544, 3, 0, 65545, 3, 0, 10, 3, 0, 11, 3, 0, 65546, 3, 0, 262150, 3, 0, 262151, 3, 0, 196615, 3, 0, 196616, 3, 0, 131081, 3, 0, 196618, 3, 0, 196619, 3, 0, 196620, 3, 0, 131084, 3, 0, 65548, 3, 0, 12, 3, 0, -65525, 3, 0, 131082, 3, 0, 65547, 3, 0, 196617, 3, 0, 65543, 3, 0, -65526, 3, 0, 131083, 3, 0, -131057, 1, 0, -131056, 1, 0, -131055, 1, 0, -196591, 1, 0, -262127, 1, 0, -262126, 1, 0, -327662, 1, 0, -327661, 1, 0, -393197, 1, 0, -393196, 1, 0, -327660, 1, 0, -327659, 1, 0, -327663, 1, 0, -262128, 1, 0, -196592, 1, 0, -196593, 1, 0, -262129, 1, 0, -327664, 1, 0, -393199, 1, 0, -393198, 1, 0, -458732, 1, 0, -458733, 1, 0, -458734, 1, 0, -393200, 1, 0, -65519, 1, 0, -131054, 1, 0, -131053, 1, 0, -131052, 1, 0, -196588, 1, 0, -196587, 1, 0, -262123, 1, 0, -262122, 1, 0, -262124, 1, 0, -262125, 1, 0, -196589, 1, 0, -196590, 1, 0, 720911, 4, 0, 655375, 4, 0, 589839, 4, 0, 589840, 4, 0, 589841, 4, 0, 524305, 4, 0, 524306, 4, 0, 589843, 4, 0, 655379, 4, 0, 655378, 4, 0, 655377, 4, 0, 655376, 4, 0, 720912, 4, 0, 786447, 4, 0, 786448, 4, 0, 851984, 4, 0, 786449, 4, 0, 786450, 4, 0, 720914, 4, 0, 720915, 4, 0, 589844, 4, 0, 524308, 4, 0, 524307, 4, 0, 720913, 4, 0, 851986, 4, 0, 786451, 4, 0, 786452, 4, 0, 720916, 4, 0, 655380, 4, 0, 655381, 4, 0, 851985, 4, 0, 917522, 4, 0, 851987, 4, 0, 589842, 4, 0, 720917, 4, 0, 720918, 4, 0, 786454, 4, 0, 786453, 4, 0, 851989, 4, 0, 851988, 4, 0, 917524, 4, 0, 917523, 4, 0, 655382, 4, 0, 589846, 4, 0, 524309, 4, 0, 589845, 4, 0)
 layer_1/name = "level1"
 layer_1/y_sort_enabled = true
 layer_1/y_sort_origin = 1
 layer_1/z_index = 1
-layer_1/tile_data = PackedInt32Array(720913, 4, 0, 720914, 4, 0, 720915, 4, 0, 786450, 4, 0, 786451, 4, 0, 720916, 4, 0, 524308, 4, 0, 589843, 4, 0, 589842, 4, 0, 655378, 4, 0, 655379, 4, 0, 786449, 4, 0, 655380, 4, 0, 589844, 4, 0)
+layer_1/tile_data = PackedInt32Array()
 layer_2/name = "level2"
+layer_2/y_sort_enabled = true
 layer_2/y_sort_origin = 2
 layer_2/z_index = 2
-layer_2/tile_data = PackedInt32Array(786449, 6, 0, 786450, 6, 0, 786451, 6, 0, 720915, 6, 0, 720916, 6, 0, 655380, 6, 0, 720913, 6, 0, 720914, 6, 0, 655378, 6, 0, 589842, 6, 0, 589843, 6, 0, 589841, 6, 0, 655377, 6, 0, 655379, 6, 0, 589844, 6, 0)
+layer_2/tile_data = PackedInt32Array()
+script = ExtResource("3_8rune")
+metadata/_edit_vertical_guides_ = [96.0, 32.0, 64.0]
+metadata/_edit_horizontal_guides_ = [16.0, 48.0, 32.0]
+
+[node name="highlighter" parent="." instance=ExtResource("5_haxqd")]
