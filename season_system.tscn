@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://ba8l8g0oj0ge7"]
+
+[ext_resource type="Script" path="res://season_system.gd" id="1_nni4n"]
+
+[node name="season_system" type="Node2D"]
+script = ExtResource("1_nni4n")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[node name="time_label" type="Label" parent="."]
+offset_left = 136.0
+offset_top = 8.0
+offset_right = 177.0
+offset_bottom = 31.0
+text = "06:00"
+
+[node name="season_label" type="Label" parent="."]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 48.0
+offset_bottom = 31.0
+text = "SPR"
+
+[node name="month_label" type="Label" parent="."]
+offset_left = 72.0
+offset_top = 8.0
+offset_right = 112.0
+offset_bottom = 31.0
+text = "MAR"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
