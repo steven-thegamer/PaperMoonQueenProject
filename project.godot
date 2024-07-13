@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="PaperMoonQueen"
+run/main_scene="res://prototype.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+DateTimeSystem="*res://date_time_system.tscn"
 
 [display]
 

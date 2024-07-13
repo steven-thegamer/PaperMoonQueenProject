@@ -11,8 +11,6 @@ var tile_position : Vector2
 
 func _ready():
 	tilemap = get_parent().tilemap
-	await get_tree().create_timer(1.0).timeout
-	move_character(tile_position, Vector2(50, -1))
 
 func _process(delta):
 	tile_position = tilemap.local_to_map(global_position)
@@ -48,3 +46,7 @@ func movement(movement_index : move_key):
 	tween.tween_property(self,"position",position + possible_movement[movement_index] * 16,1)
 	await get_tree().create_timer(1.0).timeout
 	emit_signal("done_moving")
+
+
+func _on_timer_timeout():
+	pass # Replace with function body.

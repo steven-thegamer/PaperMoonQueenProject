@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4gog3"]
 size = Vector2(24, 24)
 
-[node name="CharacterBody2D" type="AnimatableBody2D"]
+[node name="character_test" type="AnimatableBody2D"]
 script = ExtResource("1_p0dry")
 
 [node name="Icon" type="Sprite2D" parent="."]
@@ -17,3 +17,8 @@ texture = ExtResource("1_thtuf")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -12)
 shape = SubResource("RectangleShape2D_4gog3")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="done_moving" from="." to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

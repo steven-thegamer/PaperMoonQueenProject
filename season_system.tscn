@@ -5,10 +5,6 @@
 [node name="season_system" type="Node2D"]
 script = ExtResource("1_nni4n")
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.1
-autostart = true
-
 [node name="time_label" type="Label" parent="."]
 offset_left = 136.0
 offset_top = 8.0
@@ -29,5 +25,3 @@ offset_top = 8.0
 offset_right = 112.0
 offset_bottom = 31.0
 text = "MAR"
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

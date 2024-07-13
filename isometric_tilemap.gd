@@ -5,6 +5,8 @@ signal position_selected(location)
 
 var astar := AStarGrid2D.new()
 
+enum tile_type {DIRT,GRASS_SPRING,GRASS_SUMMER,GRASS_FALL,GRASS_WINTER,SNOW}
+
 func _ready():
 	astar.region = Rect2i(-64,-64,128,128)
 	astar.cell_size = Vector2(1, 1)
@@ -16,6 +18,7 @@ func _ready():
 		for j in range(astar.region.position.y,astar.region.position.y + astar.region.size.y):
 			if get_cell_source_id(0,Vector2i(i,j)) == -1:
 				astar.set_point_solid(Vector2i(i,j))
+	DateTimeSystem.change_season.connect(season_change_tilemap)
 
 func _physics_process(delta):
 	var mouse_pos = get_global_mouse_position()
@@ -40,3 +43,35 @@ func get_neighbors(tile_coordinate : Vector2, layer : int):
 func create_dirt(location, layer):
 	var tile_pos = local_to_map(location)
 	set_cell(layer,tile_pos,0,Vector2i(randi() % 4,0))
+
+func season_change_tilemap():
+	change_grass_by_season()
+	if DateTimeSystem.season == "AUT":
+		change_dirt_to_snow()
+	else:
+		change_snow_to_dirt()
+
+func change_grass_by_season():
+	for i in range(astar.region.position.x,astar.region.position.x + astar.region.size.x):
+		for j in range(astar.region.position.y,astar.region.position.y + astar.region.size.y):
+			if get_cell_source_id(0,Vector2i(i,j)) != -1 and get_cell_source_id(0,Vector2i(i,j)) != 0 and get_cell_source_id(0,Vector2i(i,j)) != 5:
+				var cell_id = get_cell_source_id(0,Vector2(i,j)) + 1
+				if cell_id == 5:
+					cell_id = 1
+				var cell_atlas = get_cell_atlas_coords(0,Vector2(i,j))
+				set_cell(0,Vector2(i,j),cell_id,Vector2(cell_atlas.x,cell_id))
+
+func change_dirt_to_snow():
+	for i in range(astar.region.position.x,astar.region.position.x + astar.region.size.x):
+		for j in range(astar.region.position.y,astar.region.position.y + astar.region.size.y):
+			if get_cell_source_id(0,Vector2i(i,j)) == 0:
+				var cell_atlas = get_cell_atlas_coords(0,Vector2(i,j))
+				set_cell(0,Vector2(i,j),5,Vector2(cell_atlas.x,5))
+
+func change_snow_to_dirt():
+	for i in range(astar.region.position.x,astar.region.position.x + astar.region.size.x):
+		for j in range(astar.region.position.y,astar.region.position.y + astar.region.size.y):
+			if get_cell_source_id(0,Vector2i(i,j)) == 5:
+				var cell_atlas = get_cell_atlas_coords(0,Vector2(i,j))
+				set_cell(0,Vector2(i,j),0,Vector2(cell_atlas.x,0))
+
