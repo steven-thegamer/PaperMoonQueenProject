@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://cgf1t67dfp431"]
 
-[ext_resource type="Texture2D" uid="uid://cq52nnpcrewig" path="res://Assets/AllMyFellas.png" id="2_iepbe"]
+[ext_resource type="Texture2D" uid="uid://cq52nnpcrewig" path="res://Landscape/AllMyFellas.png" id="2_iepbe"]
 [ext_resource type="Script" path="res://isometric_tilemap.gd" id="3_8rune"]
 [ext_resource type="PackedScene" uid="uid://beaqidq0oq35f" path="res://highlighter.tscn" id="5_haxqd"]
 

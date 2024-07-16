@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://prototype.gd" id="1_5x4ak"]
 [ext_resource type="PackedScene" uid="uid://cgf1t67dfp431" path="res://isometric_tilemap.tscn" id="2_12hsc"]
 [ext_resource type="Script" path="res://game_camera.gd" id="3_rs8h1"]
-[ext_resource type="PackedScene" uid="uid://dflqxx4g2kbcl" path="res://character_test.tscn" id="4_he1vu"]
+[ext_resource type="PackedScene" uid="uid://dflqxx4g2kbcl" path="res://Characters/character_test.tscn" id="4_he1vu"]
 [ext_resource type="PackedScene" uid="uid://ba8l8g0oj0ge7" path="res://season_system.tscn" id="5_0dvqe"]
 
 [sub_resource type="GDScript" id="GDScript_qgy63"]

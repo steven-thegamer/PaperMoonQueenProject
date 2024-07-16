@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cge2rqamb157w"
-path="res://.godot/imported/slope.png-4959ca7d8ffae51e12050e647ff8b765.ctex"
+uid="uid://syv1xcgajok6"
+path="res://.godot/imported/AuroraeChibi1.png-128e61482b3a94d9759a259871077e23.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://slope.png"
-dest_files=["res://.godot/imported/slope.png-4959ca7d8ffae51e12050e647ff8b765.ctex"]
+source_file="res://Characters/Aurorae/AuroraeChibi1.png"
+dest_files=["res://.godot/imported/AuroraeChibi1.png-128e61482b3a94d9759a259871077e23.ctex"]
 
 [params]
 
