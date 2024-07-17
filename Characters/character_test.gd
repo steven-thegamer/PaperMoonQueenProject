@@ -47,6 +47,6 @@ func movement(movement_index : move_key):
 	await get_tree().create_timer(1.0).timeout
 	emit_signal("done_moving")
 
-
 func _on_timer_timeout():
 	pass # Replace with function body.
+

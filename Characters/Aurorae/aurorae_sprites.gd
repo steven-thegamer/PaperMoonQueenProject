@@ -4,12 +4,6 @@ extends Node2D
 @onready var front_side = $front_side
 @onready var front_side_alt = $front_side_alt
 
-func _ready():
-	pass # Replace with function body.
-
-func _process(delta):
-	pass
-
 func front_alt_display_sprite(top : int, bottom : int, expression : int) -> void:
 	if top == 0:
 		if bottom == 0:
