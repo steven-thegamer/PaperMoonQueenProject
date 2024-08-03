@@ -1,10 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://bwusgkeu7gbye"]
+[gd_scene load_steps=12 format=3 uid="uid://bwusgkeu7gbye"]
 
 [ext_resource type="Script" path="res://prototype.gd" id="1_5x4ak"]
 [ext_resource type="PackedScene" uid="uid://cgf1t67dfp431" path="res://isometric_tilemap.tscn" id="2_12hsc"]
 [ext_resource type="Script" path="res://game_camera.gd" id="3_rs8h1"]
-[ext_resource type="PackedScene" uid="uid://dflqxx4g2kbcl" path="res://Characters/character_test.tscn" id="4_he1vu"]
-[ext_resource type="PackedScene" uid="uid://ba8l8g0oj0ge7" path="res://season_system.tscn" id="5_0dvqe"]
+[ext_resource type="PackedScene" uid="uid://dflqxx4g2kbcl" path="res://character_test.tscn" id="4_he1vu"]
+[ext_resource type="PackedScene" uid="uid://dfgyywpc0irsx" path="res://gameUI.tscn" id="5_j7gp2"]
+[ext_resource type="Script" path="res://StateMachine/GameState.gd" id="6_j4oub"]
+[ext_resource type="Script" path="res://StateMachine/Idle.gd" id="7_simke"]
+[ext_resource type="Script" path="res://StateMachine/IdleTransition.gd" id="8_fq3mb"]
+[ext_resource type="Script" path="res://StateMachine/Pause.gd" id="8_ij5jt"]
+[ext_resource type="Script" path="res://StateMachine/Transition.gd" id="8_vykbq"]
 
 [sub_resource type="GDScript" id="GDScript_qgy63"]
 script/source = "extends Node2D
@@ -13,6 +18,7 @@ script/source = "extends Node2D
 "
 
 [node name="prototype" type="Node2D"]
+process_mode = 1
 y_sort_enabled = true
 script = ExtResource("1_5x4ak")
 metadata/_edit_vertical_guides_ = [-224.0, 32.0]
@@ -36,6 +42,25 @@ position = Vector2(0, -8)
 [node name="game_camera" type="Camera2D" parent="."]
 script = ExtResource("3_rs8h1")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" parent="." instance=ExtResource("5_j7gp2")]
 
-[node name="season_system" parent="CanvasLayer" instance=ExtResource("5_0dvqe")]
+[node name="StateMachine" type="Node" parent="."]
+process_mode = 3
+script = ExtResource("6_j4oub")
+
+[node name="idle" type="Node" parent="StateMachine"]
+script = ExtResource("7_simke")
+
+[node name="pause" type="Node" parent="StateMachine/idle"]
+script = ExtResource("8_fq3mb")
+target_state = "pause"
+
+[node name="pause" type="Node" parent="StateMachine"]
+script = ExtResource("8_ij5jt")
+
+[node name="idle" type="Node" parent="StateMachine/pause"]
+script = ExtResource("8_vykbq")
+target_state = "idle"
+
+[connection signal="close_menu" from="CanvasLayer" to="." method="_on_canvas_layer_close_menu"]
+[connection signal="open_menu" from="CanvasLayer" to="." method="_on_canvas_layer_open_menu"]

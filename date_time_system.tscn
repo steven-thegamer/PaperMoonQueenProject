@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://date_time_system.gd" id="1_xepwu"]
 
-[node name="date_time_system" type="Node2D"]
+[node name="date_time_system" type="Node"]
 script = ExtResource("1_xepwu")
 
 [node name="Timer" type="Timer" parent="."]

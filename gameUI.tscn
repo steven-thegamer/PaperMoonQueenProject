@@ -1,0 +1,68 @@
+[gd_scene load_steps=16 format=3 uid="uid://dfgyywpc0irsx"]
+
+[ext_resource type="Texture2D" uid="uid://cah2pyvtx7lnc" path="res://gameUI/gameUI.png" id="1_6h5x3"]
+[ext_resource type="PackedScene" uid="uid://ba8l8g0oj0ge7" path="res://season_system.tscn" id="1_rg4hs"]
+[ext_resource type="Script" path="res://gameUI.gd" id="1_rt452"]
+[ext_resource type="Texture2D" uid="uid://denp3sx1oanle" path="res://gameUI/menu_button1.png" id="4_gftos"]
+[ext_resource type="Texture2D" uid="uid://bs18hgi3hfluc" path="res://gameUI/menu_button2.png" id="5_n4fh7"]
+[ext_resource type="Texture2D" uid="uid://bqhmgk1pfpcux" path="res://gameUI/menu_button3.png" id="6_xqhgm"]
+[ext_resource type="Texture2D" uid="uid://6i62hea4y7me" path="res://gameUI/button_build1.png" id="7_laouf"]
+[ext_resource type="Texture2D" uid="uid://1cop6nxajcfx" path="res://gameUI/button_build2.png" id="8_1lqrf"]
+[ext_resource type="Texture2D" uid="uid://wmnyo2emijbd" path="res://gameUI/button_build3.png" id="9_3fcir"]
+[ext_resource type="Texture2D" uid="uid://dcpeuney2rq5n" path="res://gameUI/button_research1.png" id="10_a23n0"]
+[ext_resource type="Texture2D" uid="uid://b4btdu87kqk1x" path="res://gameUI/button_research2.png" id="11_2xykc"]
+[ext_resource type="Texture2D" uid="uid://bfcl8j0bl262n" path="res://gameUI/button_research3.png" id="12_telfx"]
+[ext_resource type="Texture2D" uid="uid://b4pnpamn4dl3o" path="res://gameUI/button_stats1.png" id="13_7wgus"]
+[ext_resource type="Texture2D" uid="uid://cab0u4hs0cpji" path="res://gameUI/button_stats2.png" id="14_d4d3i"]
+[ext_resource type="Texture2D" uid="uid://b6ytt24c0d0sn" path="res://gameUI/button_stats3.png" id="15_oebr3"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_rt452")
+
+[node name="GameUi" type="Sprite2D" parent="."]
+position = Vector2(320, 180)
+texture = ExtResource("1_6h5x3")
+
+[node name="season_system" parent="." instance=ExtResource("1_rg4hs")]
+
+[node name="MenuButton" type="TextureButton" parent="."]
+offset_left = 569.0
+offset_top = 318.0
+offset_right = 633.0
+offset_bottom = 354.0
+texture_normal = ExtResource("4_gftos")
+texture_pressed = ExtResource("5_n4fh7")
+texture_hover = ExtResource("6_xqhgm")
+
+[node name="pause_menu" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="pause_menu"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 66.0
+offset_right = 66.0
+offset_bottom = 155.0
+
+[node name="build" type="TextureButton" parent="pause_menu/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("7_laouf")
+texture_pressed = ExtResource("8_1lqrf")
+texture_hover = ExtResource("9_3fcir")
+
+[node name="research" type="TextureButton" parent="pause_menu/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("10_a23n0")
+texture_pressed = ExtResource("11_2xykc")
+texture_hover = ExtResource("12_telfx")
+
+[node name="stats" type="TextureButton" parent="pause_menu/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("13_7wgus")
+texture_pressed = ExtResource("14_d4d3i")
+texture_hover = ExtResource("15_oebr3")
+
+[connection signal="pressed" from="MenuButton" to="." method="_on_button_pressed"]

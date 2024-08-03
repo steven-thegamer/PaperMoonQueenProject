@@ -23,14 +23,15 @@ func _ready():
 func _physics_process(delta):
 	var mouse_pos = get_global_mouse_position()
 	var tile_pos = map_to_local(local_to_map(mouse_pos))
-	highlighter.global_position = tile_pos
+	#highlighter.global_position = tile_pos
 
 func _unhandled_input(event):
-	if event is InputEventMouseButton and event.is_pressed():
-		var mouse_pos = get_global_mouse_position()
-		var tile_pos = map_to_local(local_to_map(mouse_pos))
-		if get_cell_source_id(0,local_to_map(mouse_pos)) == -1 and get_cell_atlas_coords(0,local_to_map(mouse_pos)) == Vector2i(-1,-1):
-			create_dirt(mouse_pos,0)
+	pass
+	#if event is InputEventMouseButton and event.is_pressed():
+		#var mouse_pos = get_global_mouse_position()
+		#var tile_pos = map_to_local(local_to_map(mouse_pos))
+		#if get_cell_source_id(0,local_to_map(mouse_pos)) == -1 and get_cell_atlas_coords(0,local_to_map(mouse_pos)) == Vector2i(-1,-1):
+			#create_dirt(mouse_pos,0)
 			
 func get_neighbors(tile_coordinate : Vector2, layer : int):
 	var neighbors = []
@@ -43,6 +44,10 @@ func get_neighbors(tile_coordinate : Vector2, layer : int):
 func create_dirt(location, layer):
 	var tile_pos = local_to_map(location)
 	set_cell(layer,tile_pos,0,Vector2i(randi() % 4,0))
+	if DateTimeSystem.season == "WIN":
+		change_dirt_to_snow()
+	else:
+		change_snow_to_dirt()
 
 func season_change_tilemap():
 	change_grass_by_season()

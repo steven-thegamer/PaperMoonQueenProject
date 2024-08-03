@@ -1,4 +1,4 @@
-extends Node2D
+extends Node
 
 var month_id := 3
 var time_minutes := 0

@@ -4,99 +4,39 @@ extends Node2D
 @onready var front_side = $front_side
 @onready var front_side_alt = $front_side_alt
 
+func hide_all_sprites():
+	back_side.hide()
+	front_side.hide()
+	front_side_alt.hide()
+
 func front_alt_display_sprite(top : int, bottom : int, expression : int) -> void:
-	if top == 0:
-		if bottom == 0:
-			front_side_alt.play("normal")
-		elif bottom == 1:
-			front_side_alt.play("pantsless")
-		else:
-			return
-	elif top == 1:
-		if bottom == 0:
-			front_side_alt.play("shirtless")
-		elif bottom == 1:
-			front_side_alt.play("shirtless_pantsless")
-		else:
-			return
-	elif top == 2:
-		if bottom == 0:
-			front_side_alt.play("braless")
-		elif bottom == 2:
-			front_side_alt.play("nude")
-		else:
-			return
-	else:
-		return
+	front_side_alt.show()
+	var animation_name = "shirt" if top == 0 else ("bra" if top == 1 else "nude") + "_" + "pants" if bottom == 0 else "nude"
 	
 	if expression >= front_side_alt.sprite_frames:
 		return
 	
+	front_side_alt.play(animation_name)
+	
 	front_side_alt.frame = expression
 
 func front_display_sprite(top : int, bottom : int, expression : int) -> void:
-	if top == 0:
-		if bottom == 0:
-			front_side.play("normal")
-		elif bottom == 1:
-			front_side.play("pantsless")
-		else:
-			return
-	elif top == 1:
-		if bottom == 0:
-			front_side.play("shirtless")
-		elif bottom == 1:
-			front_side.play("shirtless_pantsless")
-		else:
-			return
-	elif top == 2:
-		if bottom == 0:
-			front_side.play("braless")
-		elif bottom == 2:
-			front_side.play("nude")
-		else:
-			return
-	else:
-		return
+	front_side.show()
+	var animation_name = "shirt" if top == 0 else ("bra" if top == 1 else "nude") + "_" + "pants" if bottom == 0 else "nude"
 	
 	if expression >= front_side.sprite_frames:
 		return
 	
+	front_side.play(animation_name)
 	front_side.frame = expression
 
 func back_display_sprite(top : int, bottom : int, expression : int) -> void:
-	if top == 0:
-		if bottom == 0:
-			back_side.play("normal")
-		elif bottom == 1:
-			back_side.play("pantsless")
-		elif bottom == 2:
-			return
-		else:
-			return
-	elif top == 1:
-		if bottom == 0:
-			back_side.play("shirtless")
-		elif bottom == 1:
-			back_side.play("shirtless_pantsless")
-		elif bottom == 2:
-			back_side.play("shirtless_pantiesless")
-		else:
-			return
-	elif top == 2:
-		if bottom == 0:
-			back_side.play("braless")
-		elif bottom == 1:
-			back_side.play("braless_pantsless")
-		elif bottom == 2:
-			back_side.play("nude")
-		else:
-			return
-	else:
-		return
+	back_side.show()
+	var animation_name = "shirt" if top == 0 else ("bra" if top == 1 else "nude") + "_" + "pants" if bottom == 0 else ("panties" if bottom == 1 else "nude")
 	
 	if expression >= back_side.sprite_frames:
 		return
 	
+	back_side.play(animation_name)
 	back_side.frame = expression
 

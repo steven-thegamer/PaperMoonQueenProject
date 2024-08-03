@@ -1,27 +1,64 @@
-[gd_scene load_steps=2 format=3 uid="uid://ba8l8g0oj0ge7"]
+[gd_scene load_steps=8 format=3 uid="uid://ba8l8g0oj0ge7"]
 
 [ext_resource type="Script" path="res://season_system.gd" id="1_nni4n"]
+[ext_resource type="Texture2D" uid="uid://birilmbfjw7c" path="res://gameUI/season_icons1.png" id="3_gsg4q"]
+[ext_resource type="FontFile" uid="uid://bhwgxbtojkbpg" path="res://Fonts/m6x11plus.ttf" id="3_slxys"]
+[ext_resource type="Texture2D" uid="uid://ddeur4q3gupmv" path="res://gameUI/season_icons2.png" id="4_0s108"]
+[ext_resource type="Texture2D" uid="uid://cryustk6mn5in" path="res://gameUI/season_icons3.png" id="5_75onv"]
+[ext_resource type="Texture2D" uid="uid://bac0ha7gmqynb" path="res://gameUI/season_icons4.png" id="6_uhuhg"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i2fml"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_gsg4q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_0s108")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_75onv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_uhuhg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="season_system" type="Node2D"]
 script = ExtResource("1_nni4n")
-
-[node name="time_label" type="Label" parent="."]
-offset_left = 136.0
-offset_top = 8.0
-offset_right = 177.0
-offset_bottom = 31.0
-text = "06:00"
+metadata/_edit_horizontal_guides_ = [48.0]
 
 [node name="season_label" type="Label" parent="."]
-offset_left = 8.0
+offset_left = 64.0
 offset_top = 8.0
-offset_right = 48.0
-offset_bottom = 31.0
+offset_right = 104.0
+offset_bottom = 41.0
+theme_override_fonts/font = ExtResource("3_slxys")
+theme_override_font_sizes/font_size = 32
 text = "SPR"
 
 [node name="month_label" type="Label" parent="."]
-offset_left = 72.0
+offset_left = 168.0
 offset_top = 8.0
-offset_right = 112.0
-offset_bottom = 31.0
+offset_right = 208.0
+offset_bottom = 41.0
+theme_override_fonts/font = ExtResource("3_slxys")
+theme_override_font_sizes/font_size = 32
 text = "MAR"
+
+[node name="time_label" type="Label" parent="."]
+offset_left = 256.0
+offset_top = 8.0
+offset_right = 330.0
+offset_bottom = 41.0
+theme_override_fonts/font = ExtResource("3_slxys")
+theme_override_font_sizes/font_size = 32
+text = "06:00"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(32, 24)
+sprite_frames = SubResource("SpriteFrames_i2fml")
+speed_scale = 0.0

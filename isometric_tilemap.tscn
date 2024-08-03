@@ -387,3 +387,4 @@ metadata/_edit_vertical_guides_ = [96.0, 32.0, 64.0]
 metadata/_edit_horizontal_guides_ = [16.0, 48.0, 32.0]
 
 [node name="highlighter" parent="." instance=ExtResource("5_haxqd")]
+visible = false
